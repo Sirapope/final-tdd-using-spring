@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.bank.domain.Account;
 import com.bank.domain.InsufficientFundsException;
 import com.bank.repository.AccountRepository;
-import com.bank.service.TransferService;
+import com.bank.service.AccountService;
 
 
 public class AccountControllerTest {
@@ -20,14 +20,15 @@ public class AccountControllerTest {
     	
     	AccountRepository repository = mock(AccountRepository.class);
     	when(repository.findById(anyString())).thenReturn(account);
+		AccountService service = mock(AccountService.class);
     	// controller.setRepository(repository);
-    	AccountController controller = new AccountController(repository);
+    	AccountController controller = new AccountController(service);
     	
     	//when
     	Account result = controller.handleById(accId);
     	
     	//then
-    	assertEquals(account, result);
+    	verify(service, times(1)).handleById(accId);
 	}
 	
 	// @Test
