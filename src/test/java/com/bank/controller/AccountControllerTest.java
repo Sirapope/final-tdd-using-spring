@@ -16,12 +16,12 @@ public class AccountControllerTest {
     public void testHandleById() {
     	//given
     	String accId = "A123";
-    	AccountController controller = new AccountController();
     	Account account = new Account(accId, 100d);
     	
     	AccountRepository repository = mock(AccountRepository.class);
     	when(repository.findById(anyString())).thenReturn(account);
-    	controller.setRepository(repository);
+    	// controller.setRepository(repository);
+    	AccountController controller = new AccountController(repository);
     	
     	//when
     	Account result = controller.handleById(accId);
