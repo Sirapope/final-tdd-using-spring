@@ -15,8 +15,8 @@ public class AccountControllerTest {
 	@Test
     public void testHandleById() {
     	//given
-    	String accId = "A123";
-    	Account account = new Account(accId, 100d);
+    	final String accId = "A123";
+    	final Account account = new Account(accId, 100d);
     	
     	AccountRepository repository = mock(AccountRepository.class);
     	when(repository.findById(anyString())).thenReturn(account);
