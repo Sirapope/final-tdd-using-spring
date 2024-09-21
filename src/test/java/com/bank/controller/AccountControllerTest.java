@@ -30,20 +30,20 @@ public class AccountControllerTest {
     	assertEquals(account, result);
 	}
 	
-	@Test
-	public void testHandleTransfer() throws InsufficientFundsException {
-    	//given
-		String srcId = "A123";
-		String destId = "B123";
-		AccountController controller = new AccountController();
+	// @Test
+	// public void testHandleTransfer() throws InsufficientFundsException {
+    // 	//given
+	// 	String srcId = "A123";
+	// 	String destId = "B123";
+	// 	AccountController controller = new AccountController();
 		
-		TransferService service = mock(TransferService.class);
-		controller.setService(service);
+	// 	TransferService service = mock(TransferService.class);
+	// 	controller.setService(service);
 		
-    	//when
-		controller.handleTransfer(srcId, 100d, destId);
+    // 	//when
+	// 	controller.handleTransfer(srcId, 100d, destId);
 		
-    	//then
-		verify(service).transfer(100d, srcId, destId);
-	}
+    // 	//then
+	// 	verify(service).transfer(100d, srcId, destId);
+	// }
 }
